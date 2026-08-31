@@ -29,14 +29,14 @@ export default createBrowserRouter([
             },
         ]
     },
-    {
-        path:"/login",
-        element:<LoginPage/>,
-        loader:()=>{
-            console.log(localStorage.access_token);
-            //if(localStorage.access_token) return redirect('/')
-            //return null
-        }
-    },
+    // {
+    //     path:"/login",
+    //     element:<LoginPage/>,
+    //     loader:()=>{
+    //         console.log(localStorage.access_token);
+    //         //if(localStorage.access_token) return redirect('/')
+    //         //return null
+    //     }
+    // },
     
 ])

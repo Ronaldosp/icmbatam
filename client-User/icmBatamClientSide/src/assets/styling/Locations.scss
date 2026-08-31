@@ -1,0 +1,80 @@
+.locations-component {
+    width: 100%;
+    background-color: #082d55;
+    color: white;
+
+    &__container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding: 80px 40px;
+    }
+
+    &__content {
+        width: 100%;
+        max-width: 600px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    &__content-title {
+        width: 100%;
+        padding-bottom: 30px;
+    }
+
+    &__content-location {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    &__content-location-wrapper {
+        width: 100%;
+    }
+
+    &__content-location-address {
+        margin-bottom: 30px;
+    }
+
+    &__content-location-services {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    &__content-location-services-content-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__content-location-services-location,
+    &__content-location-services-list {
+        width: 100%;
+        text-align: center;
+    }
+
+    &__content-location-services-location{
+        p{
+            font-weight: 500;
+        }
+    }
+
+    p {
+        margin: 0;
+    }
+
+    &__content-button-container {
+        button {
+            background-color: gray;
+            color: white;
+            font-weight: 600;
+            padding: 8px 28px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+        }
+    }
+}

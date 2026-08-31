@@ -1,9 +1,11 @@
 import { Outlet } from "react-router-dom";
-import Navbar from "./Navbar";
+import NavBar from "./NavBar";
+import ScrollToHash from "./ScrollToHash";
 
 export default function Layout(){
     return <>
-        <Navbar/>
-        <Footer/>
+        <ScrollToHash />
+        <NavBar/>
+        <Outlet/>
     </>
 }

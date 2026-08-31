@@ -1,0 +1,17 @@
+@media (min-width: 992px) {
+  .navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.navbar-cmp{
+  background-color: white;
+  .navbar-logo{
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+}

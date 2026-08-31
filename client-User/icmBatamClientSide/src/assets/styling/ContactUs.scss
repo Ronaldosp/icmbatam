@@ -1,0 +1,55 @@
+.contact-us-component {
+    width: 100%;
+    padding: 80px 40px;
+
+    &__container {
+        width: 100%;
+        min-height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    &__title {
+        width: 100%;
+        margin-bottom: 30px;
+
+        h2 {
+            margin: 0;
+        }
+    }
+
+    &__content {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+
+    &__content__title {
+        h5 {
+            margin: 0 0 10px;
+        }
+    }
+
+    &__content__description {
+        p {
+            margin: 0 0 5px;
+        }
+    }
+
+    &__credentials {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+
+    &__credentials-list {
+        p {
+            margin: 0 0 5px;
+        }
+    }
+}
