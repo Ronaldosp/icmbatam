@@ -27,7 +27,7 @@ export default function HomePage() {
                 <Giving />
             </section>
 
-            <Footer />
+            
         </div>
     );
 }

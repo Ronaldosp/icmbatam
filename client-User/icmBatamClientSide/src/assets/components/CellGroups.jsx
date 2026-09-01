@@ -8,7 +8,7 @@ export default function CellGroups(){
             <div className="cell-groups-component__container">
                 <div className="cell-groups-component__content-wrapper">
                     <div className="cell-groups-component__content-title">
-                        <h2>Cell Groups</h2>
+                        <h2>CELL GROUPS</h2>
                     </div>
                     <div className="cell-groups-component__content-description">
                         <p>Kami mempercayai bahwa komunitas adalah salah satu faktor utama pertumbuhan bagi kehidupan orang percaya. Karena itu kami rindu setiap jemaat berkomitmen untuk berada di dalam sebuah komunitas.</p>

@@ -20,6 +20,31 @@ export default function Footer(){
         }, 100);
     };
 
+    const handleAboutUsClick = () => {
+
+        // If already on About Us
+        if (window.location.pathname === "/aboutus") {
+            window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: "smooth"
+            });
+
+            return;
+        }
+
+        // If coming from another page
+        navigate("/aboutus");
+
+        setTimeout(() => {
+            window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: "smooth"
+            });
+        }, 100);
+    };
+
     return(
         <div className="footer-container">
             <div className="footer-logo-container">
@@ -44,7 +69,16 @@ export default function Footer(){
                 >
                     HOME
                 </a>
-                <Link to="/#aboutus">ABOUT US</Link>
+                <a
+                    href="/aboutus"
+                    onClick={(e) => {
+                        e.preventDefault();
+                        handleAboutUsClick();
+                    }}
+                >
+                    ABOUT US
+                </a>
+
                 <Link to="/#cellgroup">CELL GROUP</Link>
                 <Link to="/#location">LOCATIONS</Link>
                 <Link to="/#giving">GIVING</Link>

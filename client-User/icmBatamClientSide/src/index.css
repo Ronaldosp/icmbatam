@@ -37,8 +37,6 @@ body {
     width: 100%;
     min-height: 100vh;
     margin: 0 auto;
-    text-align: center;
-    box-sizing: border-box;
 }
 
 h1,
