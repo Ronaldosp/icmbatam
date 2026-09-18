@@ -7,6 +7,14 @@ export function eventsFetchSuccess(payload){
     }
 }
 
+export const adminsFetchSuccess = (payload) => {
+    return {
+        type: "admins/get",
+        payload
+    };
+};
+
+
 export const login = (body) =>{
     return async(dispatch)=>{
         try {
@@ -18,13 +26,13 @@ export const login = (body) =>{
                 }
             })
             const data = await response.json();
-
+            
             if (!response.ok) {
                 throw new Error(data.message || 'Something went wrong!');
             }
             
             localStorage.setItem("access_token", data.access_token)
-
+            
         } catch (error) {
             console.log(error.message);
             throw error;
@@ -42,9 +50,9 @@ export const register = (body) =>{
                     'Content-Type':'application/json'
                 }
             }) 
-
+            
             const data = await response.json();
-
+            
             if (!response.ok) {
                 throw new Error(data.message || 'Something went wrong!');
             }
@@ -55,6 +63,38 @@ export const register = (body) =>{
     }
 }
 
+export const fetchAdmins = () => {
+    return async (dispatch) => {
+
+        try {
+
+            const response = await fetch(
+                BASE_URL + `/admins`,
+                {
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                }
+            );
+
+            if (!response.ok) {
+                throw new Error("Something went wrong!");
+            }
+
+            const data = await response.json();
+
+            const action = adminsFetchSuccess(data);
+            dispatch(action)
+
+        } catch (error) {
+
+            console.log(error);
+            throw error;
+
+        }
+
+    };
+};
 
 export const fetchEvents = () =>{
     return async(dispatch)=>{
@@ -95,7 +135,7 @@ export const createEvents = (body) =>{
             if (!response.ok) {
                 throw new Error('Something went wrong!');
             }
-            dispatch(fetchevents())
+            dispatch(fetchEvents())
             
         } catch (error) {
             console.log(error);
@@ -119,7 +159,7 @@ export const editEvents = (id , body) =>{
             if (!response.ok) {
                 throw new Error('Something went wrong!');
             }
-            dispatch(fetchevents())
+            dispatch(fetchEvents())
             
         } catch (error) {
             console.log(error);
@@ -130,6 +170,8 @@ export const editEvents = (id , body) =>{
 
 export const deleteEvents = (id) =>{
     return async(dispatch)=>{
+        console.log(id ,"id");
+        
         try {
             const response = await fetch(BASE_URL+`/events/${id}`,{
                 method:"DELETE",
@@ -143,7 +185,7 @@ export const deleteEvents = (id) =>{
             if (!response.ok) {
                 throw new Error('Something went wrong!');
             }
-            dispatch(fetchevents())
+            dispatch(fetchEvents())
             
         } catch (error) {
             console.log(error);

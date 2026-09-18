@@ -8,6 +8,12 @@ const cors = require("cors");
 const { comparePassword } = require('./helpers/bcrypt');
 const { signToken } = require("./helpers/jwt");
 
+app.use(cors("*"));
+app.use("/registerAdmin", express.json());
+app.use("/loginAdmin", express.json());
+app.use("/admins", express.json());
+app.use("/events", express.json());
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
@@ -55,6 +61,24 @@ app.post('/loginAdmin', async(req , res)=>{
   }
 });
 
+app.get('/admins', async (req, res) => {
+    try {
+
+        const admins = await Admin.findAll();
+
+        res.status(200).json(admins);
+
+    } catch (error) {
+
+        console.log(error);
+
+        res.status(500).json({
+            message: "Internal Server Error"
+        });
+
+    }
+});
+
 app.get('/events', async(req , res)=>{
   try {
     const event = await Event.findAll();
@@ -67,7 +91,7 @@ app.get('/events', async(req , res)=>{
 
 app.post('/events', async(req,res)=>{
   try {
-    console.log(req.body);
+    console.log(req.body , "body");
     
     const {title , date , thumbnail , venue , description } = req.body;
     const event = await Event.create({title , date , thumbnail , venue , description })
@@ -103,7 +127,7 @@ app.put('/events/:id', async(req,res)=>{
 app.delete('/events/:id' , async(req,res)=>{
   try {
     const {id} = req.params
-    const event = await event.findByPk(id)
+    const event = await Event.findByPk(id)
     if(!event){
       throw {message : 'NotFound'}
     }

@@ -30,6 +30,16 @@ export default function EventsList() {
         }
     ];
 
+    const [selectedEvent, setSelectedEvent] = useState(null);
+
+    const handleOpenModal = (event) => {
+        setSelectedEvent(event);
+    };
+
+    const handleCloseModal = () => {
+        setSelectedEvent(null);
+    };
+
     return (
         <div className="events-list-component">
 
@@ -43,6 +53,7 @@ export default function EventsList() {
                         <div
                             className="events-list-component__content-card"
                             key={index}
+                            onClick={() => handleOpenModal(event)}
                         >
 
                             <div className="events-list-component__content-thumbnail">
@@ -61,7 +72,12 @@ export default function EventsList() {
                             </div>
 
                             <div className="events-list-component__content-link">
-                                <a href={event.link}>FIND OUT MORE</a>
+                                <button
+                                    type="button"
+                                    onClick={() => handleOpenModal(event)}
+                                >
+                                    FIND OUT MORE
+                                </button>
                             </div>
 
                         </div>
@@ -70,6 +86,53 @@ export default function EventsList() {
                 </div>
 
             </div>
+
+            {selectedEvent && (
+
+                <div
+                    className="events-list-component__modal-overlay"
+                    onClick={handleCloseModal}
+                >
+
+                    <div
+                        className="events-list-component__modal"
+                        onClick={(e) => e.stopPropagation()}
+                    >
+
+                        <button
+                            className="events-list-component__modal-close"
+                            type="button"
+                            onClick={handleCloseModal}
+                        >
+                            ×
+                        </button>
+
+                        <div className="events-list-component__modal-image">
+                            <img
+                                src={selectedEvent.image}
+                                alt=""
+                            />
+                        </div>
+
+                        <div className="events-list-component__modal-content">
+
+                            <h2>{selectedEvent.title}</h2>
+
+                            <p className="events-list-component__modal-date">
+                                {selectedEvent.date}
+                            </p>
+
+                            <p className="events-list-component__modal-description">
+                                {selectedEvent.description}
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            )}    
 
         </div>
     );

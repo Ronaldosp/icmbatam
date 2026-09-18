@@ -1,164 +1,198 @@
-import {useState} from "react"
-import {useNavigate} from "react-router-dom"
-import {useDispatch} from "react-redux"
-import Button from 'react-bootstrap/Button';
-import { register , registerDealer } from "../store/action/actionCreator";
-function RegisterPage(){
-    const [username , setUsername] = useState("");
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import Button from "react-bootstrap/Button";
+import Swal from "sweetalert2";
+
+import { register } from "../store/action/actionCreator";
+
+import "../styling/RegisterPage.scss";
+
+function RegisterPage() {
+    const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
-    const [password , setPassword] = useState("");
+    const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
-    const [role, setRole] = useState("");
     const [showPassword, setShowPassword] = useState(false);
+
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    return <>
-        <div style={{
-        backgroundImage: 'url("https://images.unsplash.com/photo-1692406069831-0bb7ea297645?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2FyJTIwc2hvd3Jvb218ZW58MHx8MHx8fDA%3D")',
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-        minHeight: "100vh",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center"
-      }}>
-        <div className="container " style={{maxWidth: '800px',
-        width: '100%',
-        backgroundColor: 'white',
-        padding: '25px 30px',
-        borderRadius: '5px',
-        boxShadow: '0 5px 10px rgba(0, 0, 0, 0.15)',
-        border:'5' }}>
-            <h1 className="d-flex justify-content-center text-align-center">Register Form</h1>
-            <div className="container" >
-         <form onSubmit={(event)=>{
-          event.preventDefault();
 
-          if(!email.trim() || !password.trim() || !username.trim()){
+    const handleRegister = (event) => {
+        event.preventDefault();
+
+        if (!email.trim() || !password.trim() || !username.trim()) {
             Swal.fire({
-              icon: "error",
-              title: "Oops...",
-              text: "email , password , username are required",
+                icon: "error",
+                title: "Oops...",
+                text: "Email, password, username and role are required",
             });
-            return;
-          }
 
-          if (password !== confirmPassword) {
+            return;
+        }
+
+        if (password !== confirmPassword) {
             Swal.fire({
-              icon: "error",
-              title: "Oops...",
-              text: "Passwords do not match",
+                icon: "error",
+                title: "Oops...",
+                text: "Passwords do not match",
             });
+
             return;
-          }
+        }
 
-          const registerData={
-            email , password , username , role
-          };
+        const registerDataAdmin = {
+            email,
+            password,
+            username,
+        };
 
-          if (role === "dealer") {
-            dispatch(registerDealer(registerData))
-            .then(()=>{
-              Swal.fire("Success", "Dealer Register Successful!", "success");
-              navigate('/')
-            })
-            .catch((error)=>{
-              Swal.fire("Error", error.message, "error");
-            })
-          } else if (role === "admin") {
+        dispatch(register(registerDataAdmin))
+            .then(() => {
+                Swal.fire(
+                    "Success",
+                    "Admin Register Successful!",
+                    "success"
+                );
 
-            const registerDataAdmin={
-              email , password , username
-            }
+                navigate("/");
+            })
+            .catch((error) => {
+                Swal.fire(
+                    "Error",
+                    error.message,
+                    "error"
+                );
+            });
+    };
 
-            dispatch(register(registerDataAdmin))
-            .then(()=>{
-              Swal.fire("Success", "Admin Register Successful!", "success");
-              navigate('/')
-            })
-            .catch((error)=>{
-              Swal.fire("Error", error.message, "error");
-            })
-          }
-          
-          navigate('/');
-        }}>
-          <div className="mb-3">
-            <label className="form-label">Role</label>
-            <select
-              className="form-select"
-              value={role}
-              onChange={(event) => setRole(event.target.value)}
-              required
-            >
-              <option value="">-- Select Role --</option>
-              <option value="admin">Admin</option>
-              <option value="dealer">Dealer</option>
-            </select>
-          </div>
-          <div className="mb-3">
-            <label className="form-label">Username</label>
-            <input 
-            className="form-control" 
-            type="text"
-            value={username}
-            onChange={(event)=>{
-              const value = event.target.value
-              setUsername(value)
-            }}
-             />
-          </div>
-          <div className="mb-3">
-            <label className="form-label">Email</label>
-            <input 
-            className="form-control" 
-            type="email"
-            value={email}
-            onChange={(event)=>{
-              const value = event.target.value
-              setEmail(value)
-            }}
-             />
-          </div>
-          <div className="mb-3">
-            <label className="form-label">Password</label>
-            <div className="input-group">
-              <input
-                type={showPassword ? "text" : "password"}
-                className="form-control"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-              <button
-                type="button"
-                className="btn btn-outline-secondary"
-                onClick={() => setShowPassword(!showPassword)}
-              >
-                {showPassword ? "Hide" : "Show"}
-              </button>
+    return (
+        <div className="RegisterPage-Component">
+
+            <div className="RegisterPage-Component__container">
+
+                <div className="RegisterPage-Component__card">
+
+                    <h1 className="RegisterPage-Component__title">
+                        Register Form
+                    </h1>
+
+                    <form
+                        className="RegisterPage-Component__form"
+                        onSubmit={handleRegister}
+                    >
+
+                        {/* Username */}
+                        <div className="RegisterPage-Component__field">
+
+                            <label className="RegisterPage-Component__label">
+                                Username
+                            </label>
+
+                            <input
+                                className="RegisterPage-Component__input"
+                                type="text"
+                                value={username}
+                                onChange={(event) => {
+                                    setUsername(event.target.value);
+                                }}
+                                required
+                            />
+
+                        </div>
+
+                        {/* Email */}
+                        <div className="RegisterPage-Component__field">
+
+                            <label className="RegisterPage-Component__label">
+                                Email
+                            </label>
+
+                            <input
+                                className="RegisterPage-Component__input"
+                                type="email"
+                                value={email}
+                                onChange={(event) => {
+                                    setEmail(event.target.value);
+                                }}
+                                required
+                            />
+
+                        </div>
+
+                        {/* Password */}
+                        <div className="RegisterPage-Component__field">
+
+                            <label className="RegisterPage-Component__label">
+                                Password
+                            </label>
+
+                            <div className="RegisterPage-Component__password-wrapper">
+
+                                <input
+                                    className="RegisterPage-Component__input"
+                                    type={showPassword ? "text" : "password"}
+                                    value={password}
+                                    onChange={(event) => {
+                                        setPassword(event.target.value);
+                                    }}
+                                    required
+                                />
+
+                                <button
+                                    type="button"
+                                    className="RegisterPage-Component__password-toggle"
+                                    onClick={() => {
+                                        setShowPassword(!showPassword);
+                                    }}
+                                >
+                                    {showPassword ? "Hide" : "Show"}
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                        {/* Confirm Password */}
+                        <div className="RegisterPage-Component__field">
+
+                            <label className="RegisterPage-Component__label">
+                                Confirm Password
+                            </label>
+
+                            <input
+                                className="RegisterPage-Component__input"
+                                type={showPassword ? "text" : "password"}
+                                value={confirmPassword}
+                                onChange={(event) => {
+                                    setConfirmPassword(event.target.value);
+                                }}
+                                required
+                            />
+
+                        </div>
+
+                        {/* Button */}
+                        <div className="RegisterPage-Component__button-wrapper">
+
+                            <Button
+                                type="submit"
+                                variant="dark"
+                                className="RegisterPage-Component__button"
+                            >
+                                Register
+                            </Button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
             </div>
-          </div>
-          <div className="mb-3">
-            <label className="form-label">Confirm Password</label>
-            <input
-              type={showPassword ? "text" : "password"}
-              className="form-control"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-            />
-          </div>
-          
-          <div className="d-flex justify-content-center text-align-center">
-           <Button  type="submit" className="btn btn-dark">
-          Register 
-          </Button>
-          </div>
-        </form>
+
         </div>
-        </div>
-        </div>
-    </>
+    );
 }
 
-export default RegisterPage
+export default RegisterPage;

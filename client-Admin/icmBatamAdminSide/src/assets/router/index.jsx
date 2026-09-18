@@ -1,8 +1,9 @@
 import {createBrowserRouter , redirect} from 'react-router-dom'
 import HomePage from '../views/HomePage'
-import Layout from '../components/Layout'
+import Layout from '../component/Layout'
 import LoginPage from '../views/LoginPage'
-import ResgisterPage from '../views/ResgisterPage'
+import ResgisterPage from '../views/RegisterPage'
+import EventsPage from '../views/EventsPage'
 
 export default createBrowserRouter([
     {
@@ -20,12 +21,12 @@ export default createBrowserRouter([
                 element:<HomePage/>,
             },
             {
-                path:"/login",
-                element  :<LoginPage/>
-            },
-            {
                 path:"/register",
                 element  :<ResgisterPage/>
+            },
+            {
+                path:"/events",
+                element  :<EventsPage/>
             },
         ]
     },

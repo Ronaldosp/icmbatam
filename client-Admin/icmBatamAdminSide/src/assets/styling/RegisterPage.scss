@@ -1,0 +1,259 @@
+
+.RegisterPage-Component {
+
+    min-height: 85vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-image: url("https://images.unsplash.com/photo-1692406069831-0bb7ea297645?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2FyJTIwc2hvd3Jvb218ZW58MHx8MHx8fDA%3D");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    position: relative;
+
+    &::before {
+        content: "";
+
+        position: absolute;
+        inset: 0;
+
+        background: rgba(0, 0, 0, 0.45);
+    }
+
+    &__container {
+        width: 100%;
+        max-width: 800px;
+
+        padding: 20px;
+
+        position: relative;
+        z-index: 1;
+    }
+
+    &__card {
+        width: 100%;
+
+        padding: 30px;
+
+        background-color: white;
+
+        border-radius: 8px;
+
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+
+        box-sizing: border-box;
+    }
+
+    &__title {
+        margin-bottom: 30px;
+
+        text-align: center;
+
+        font-size: 32px;
+        font-weight: 600;
+    }
+
+    &__form {
+        width: 100%;
+    }
+
+    &__field {
+        margin-bottom: 20px;
+    }
+
+    &__label {
+        display: block;
+
+        margin-bottom: 8px;
+
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    &__input {
+        width: 100%;
+
+        padding: 10px 12px;
+
+        border: 1px solid #ced4da;
+        border-radius: 5px;
+
+        font-size: 15px;
+
+        outline: none;
+
+        box-sizing: border-box;
+
+        transition: 0.2s ease;
+
+        &:focus {
+            border-color: #212529;
+
+            box-shadow: 0 0 0 3px rgba(33, 37, 41, 0.15);
+        }
+    }
+
+    &__select {
+        width: 100%;
+
+        padding: 10px 12px;
+
+        border: 1px solid #ced4da;
+        border-radius: 5px;
+
+        background-color: white;
+
+        font-size: 15px;
+
+        outline: none;
+
+        cursor: pointer;
+
+        box-sizing: border-box;
+
+        transition: 0.2s ease;
+
+        &:focus {
+            border-color: #212529;
+
+            box-shadow: 0 0 0 3px rgba(33, 37, 41, 0.15);
+        }
+    }
+
+    &__password-wrapper {
+        display: flex;
+
+        width: 100%;
+    }
+
+    &__password-wrapper &__input {
+        border-radius: 5px 0 0 5px;
+    }
+
+    &__password-toggle {
+        padding: 0 15px;
+
+        border: 1px solid #6c757d;
+        border-left: none;
+
+        border-radius: 0 5px 5px 0;
+
+        background-color: white;
+        color: #6c757d;
+
+        cursor: pointer;
+
+        transition: 0.2s ease;
+
+        &:hover {
+            background-color: #6c757d;
+            color: white;
+        }
+    }
+
+    &__button-wrapper {
+        display: flex;
+        justify-content: center;
+
+        margin-top: 30px;
+    }
+
+    &__button {
+        min-width: 140px;
+
+        padding: 10px 25px;
+    }
+
+
+    // ==========================================
+    // TABLET
+    // ==========================================
+
+    @media (max-width: 768px) {
+
+        align-items: center;
+
+        background-position: center center;
+
+        &__container {
+            max-width: 600px;
+
+            padding: 20px;
+        }
+
+        &__card {
+            padding: 25px;
+        }
+
+        &__title {
+            font-size: 28px;
+
+            margin-bottom: 25px;
+        }
+    }
+
+
+    // ==========================================
+    // MOBILE
+    // ==========================================
+
+    @media (max-width: 480px) {
+
+        align-items: flex-start;
+
+        padding: 20px 0;
+
+        background-position: center center;
+
+        &__container {
+            width: 100%;
+
+            padding: 15px;
+        }
+
+        &__card {
+            padding: 22px 18px;
+
+            border-radius: 7px;
+        }
+
+        &__title {
+            font-size: 24px;
+
+            margin-bottom: 22px;
+        }
+
+        &__field {
+            margin-bottom: 16px;
+        }
+
+        &__label {
+            font-size: 13px;
+        }
+
+        &__input,
+        &__select {
+            font-size: 14px;
+
+            padding: 10px;
+        }
+
+        &__password-toggle {
+            padding: 0 12px;
+        }
+
+        &__button-wrapper {
+            margin-top: 25px;
+        }
+
+        &__button {
+            width: 100%;
+
+            min-width: unset;
+        }
+    }
+}
+
