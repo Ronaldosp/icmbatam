@@ -11,10 +11,10 @@ export default function CellGroups(){
                         <h2>CELL GROUPS</h2>
                     </div>
                     <div className="cell-groups-component__content-description">
-                        <p>Kami mempercayai bahwa komunitas adalah salah satu faktor utama pertumbuhan bagi kehidupan orang percaya. Karena itu kami rindu setiap jemaat berkomitmen untuk berada di dalam sebuah komunitas.</p>
+                        <p>Kami percaya bahwa komunitas memiliki peran penting dalam proses pertumbuhan dan kedewasaan setiap orang percaya. Oleh karena itu, kami rindu agar setiap jemaat berkomitmen untuk hidup, bertumbuh, dan saling membangun di dalam sebuah komunitas.</p>
                     </div>
                     <div className="cell-groups-component__content-button-container">
-                        <button>JOIN CELL GROUPS NOW</button>
+                        <button>Join Komsel</button>
                     </div>
                 </div>
             </div>

@@ -6,19 +6,15 @@ export default function Values() {
     const values = [
         {
             title: "CHRIST CENTERED",
-            description: "Hidup yang berpusatkan pada Kristus"
+            description: "Mengalami Kristus melalui kedalaman Firman dan penyembahan"
         },
         {
-            title: "ACCOUNTABLE LIFE",
-            description: "Hidup yang dapat dipertanggungjawabkan"
+            title: "CHRISTLIKE LIFE",
+            description: "Mengalami gaya hidup Kristus melalui sarana pemuridan yang berpusat pada Kristus"
         },
         {
-            title: "REAL LOVE",
-            description: "Mengasihi sama seperti Yesus mengasihi"
-        },
-        {
-            title: "EXCELLENT SERVANTHOOD",
-            description: "Memberi yang terbaik dalam sikap kehambaan"
+            title: "MISSIONAL LOVE",
+            description: "Menjangkau tuaian dan menggenapi misi Tuhan menjadikan semua bangsa murid Kristus"
         }
     ];
 

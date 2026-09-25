@@ -10,7 +10,7 @@ export default function Vision(){
                 </div>
                 <div className="vision-component__content">
                     <div className="vision-component__content-description">
-                        <p>Komunitas murid Kristus yang menghadirkan kasih Bapa di setiap aspek kehidupan.</p>
+                        <p>Menjadi gereja kepenuhan Kristus yang menghadirkan Kerajaan Allah di keluarga, komunitas, dan kota.</p>
                     </div>
                 </div>
             </div>

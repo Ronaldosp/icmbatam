@@ -14,10 +14,16 @@ export default function Locations(){
 
                         <div className="locations-component__content-location-wrapper">
                             <div className="locations-component__content-location-title">
-                                <h4>GPI ICM Bengkong</h4>
+                                <h4>Gereja GPI ICM - Bengkong, Batam</h4>
                             </div>
                             <div className="locations-component__content-location-address">
                                 <p>Jl. Laksamana Bintan Blok C no 001, Bengkong Indah, Bengkong, Batam City, Riau Islands 29444</p>
+                            </div>
+                            <div className="locations-component__content-location-title">
+                                <h4>GPI ICM - Tembesi, Batam</h4>
+                            </div>
+                            <div className="locations-component__content-location-address">
+                                <p>Mall top 100, Tembesi, Kec. Batu Aji, Kota Batam, Kepulauan Riau 29424</p>
                             </div>
                             <div className="locations-component__content-location-services">
 
@@ -66,7 +72,7 @@ export default function Locations(){
                         </div>
                     </div>
                     <div className="locations-component__content-button-container">
-                        <button>GET DIRECTION</button>
+                        <a href="https://share.google/ZZ99jveM3d3pj7MIg">GET DIRECTION</a>
                     </div>
                 </div>
             </div>

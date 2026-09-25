@@ -70,7 +70,8 @@
     }
 
     &__content-button-container {
-        button {
+        a {
+            text-decoration: none;
             background-color: gray;
             color: white;
             font-weight: 600;

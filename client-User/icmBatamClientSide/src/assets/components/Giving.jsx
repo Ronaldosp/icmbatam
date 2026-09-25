@@ -14,7 +14,7 @@ export default function Giving(){
                         <h5>
                             BCA Batam Centre
                             <br />
-                            a/n ICM Batam Bengkong
+                            a.n Gereja Penyebaran Injil - 8335 174 999
                         </h5>
                     </div>
 

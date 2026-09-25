@@ -14,22 +14,22 @@ export default function OurLeaders(){
         {
             image: pastor1,
             name: "ROY UNTU",
-            role: "Pastor, Lead"
+            role: "Pastor, Senior"
         },
         {
             image: pastor2,
-            name: "THEIS PAMELAY",
+            name: "NEHEMIA CEVIN UNTU",
             role: "Pastor, Executive"
         },
         {
             image: pastor3,
             name: "ANANTO HANTORO",
-            role: "Pastor, Cell Group"
+            role: "Pastor, Associate"
         },
         {
             image: pastor4,
             name: "STANLIE WANGKA",
-            role: "Pastor, Care & Counseling"
+            role: "Pastor, Associate"
         },
         {
             image: pastor5,
