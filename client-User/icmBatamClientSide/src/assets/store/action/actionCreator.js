@@ -1,4 +1,5 @@
-const BASE_URL = 'http://localhost:3000'
+// const BASE_URL = 'http://localhost:3000'
+const BASE_URL = import.meta.env.VITE_API_URL;
 
 export function eventsFetchSuccess(payload){
     return{
@@ -46,7 +47,7 @@ export const createEvents = (body) =>{
             if (!response.ok) {
                 throw new Error('Something went wrong!');
             }
-            dispatch(fetchevents())
+            dispatch(fetchEvents())
             
         } catch (error) {
             console.log(error);
@@ -70,7 +71,7 @@ export const editEvents = (id , body) =>{
             if (!response.ok) {
                 throw new Error('Something went wrong!');
             }
-            dispatch(fetchevents())
+            dispatch(fetchEvents())
             
         } catch (error) {
             console.log(error);
@@ -94,7 +95,7 @@ export const deleteEvents = (id) =>{
             if (!response.ok) {
                 throw new Error('Something went wrong!');
             }
-            dispatch(fetchevents())
+            dispatch(fetchEvents())
             
         } catch (error) {
             console.log(error);
