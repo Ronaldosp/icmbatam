@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
 
+
 :root {
     --text: #6b6375;
     --text-h: #08060d;
@@ -35,8 +36,22 @@ body {
 
 #root {
     width: 100%;
-    min-height: 100vh;
     margin: 0 auto;
+}
+
+.layout {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.layout__content {
+    flex: 1;
+}
+
+.layout__footer {
+    flex-shrink: 0;
 }
 
 h1,

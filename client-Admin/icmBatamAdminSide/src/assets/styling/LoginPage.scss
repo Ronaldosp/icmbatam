@@ -5,7 +5,12 @@
     justify-content: center;
     align-items: center;
 
-    background-image: url("https://www.topgear.com/sites/default/files/images/news-article/2015/07/a30031998bbb016474519ca452ccce84/a_rp_-_opener.jpg");
+    background: linear-gradient(
+                    90deg,
+                    #082d55,
+                    #ffffff,
+                    #be603d
+                );
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

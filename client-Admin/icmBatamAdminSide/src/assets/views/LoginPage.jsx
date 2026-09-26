@@ -20,8 +20,6 @@ function LoginPage() {
             password
         };
 
-        console.log(loginData, "LOG");
-
         dispatch(login(loginData))
             .then(() => {
                 Swal.fire(

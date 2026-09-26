@@ -1,36 +1,22 @@
-import { useState , useEffect } from "react";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
 import "../styling/EventsList.scss";
+import { fetchEvents } from "../store/action/actionCreator";
 
 export default function EventsList() {
 
-    const events = [
-        {
-            image: "https://wallpapershome.com/images/pages/ico_h/5708.jpg",
-            title: "Kalender Korporat 2026",
-            date: "1 January 2026",
-            link: ""
-        },
-        {
-            image: "https://i.pinimg.com/originals/5c/c0/e0/5cc0e0cfe31cee258dd346b7a249a894.jpg",
-            title: "CLC Gathering",
-            date: "5 September 2026",
-            link: ""
-        },
-        {
-            image: "https://w0.peakpx.com/wallpaper/360/141/HD-wallpaper-christian-christian-worship.jpg",
-            title: "SPK PEMENANG - Periode 2 - 2026",
-            date: "13 September 2026",
-            link: ""
-        },
-        {
-            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJqiiUyCHpWc6wknAHoT3aISksfB9GfKStKv0EAymr1uEFjsVe52wrIg7Q&s=10",
-            title: "COMPASSION",
-            date: "5 September 2026",
-            link: ""
-        }
-    ];
+    const dispatch = useDispatch();
+
+    const events = useSelector(
+        (state) => state.eventReducer.events
+    );
 
     const [selectedEvent, setSelectedEvent] = useState(null);
+
+    useEffect(() => {
+        dispatch(fetchEvents());
+    }, [dispatch]);
 
     const handleOpenModal = (event) => {
         setSelectedEvent(event);
@@ -42,24 +28,25 @@ export default function EventsList() {
 
     return (
         <div className="events-list-component">
-
             <div className="events-list-component__container">
+
                 <div className="events-list-component__title">
                     <h2>EVENTS</h2>
                 </div>
+
                 <div className="events-list-component__content">
 
                     {events.map((event, index) => (
                         <div
                             className="events-list-component__content-card"
-                            key={index}
+                            key={event.id || index}
                             onClick={() => handleOpenModal(event)}
                         >
 
                             <div className="events-list-component__content-thumbnail">
                                 <img
-                                    src={event.image}
-                                    alt=""
+                                    src={event.thumbnail}
+                                    alt={event.title}
                                 />
                             </div>
 
@@ -74,7 +61,10 @@ export default function EventsList() {
                             <div className="events-list-component__content-link">
                                 <button
                                     type="button"
-                                    onClick={() => handleOpenModal(event)}
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        handleOpenModal(event);
+                                    }}
                                 >
                                     FIND OUT MORE
                                 </button>
@@ -84,16 +74,13 @@ export default function EventsList() {
                     ))}
 
                 </div>
-
             </div>
 
             {selectedEvent && (
-
                 <div
                     className="events-list-component__modal-overlay"
                     onClick={handleCloseModal}
                 >
-
                     <div
                         className="events-list-component__modal"
                         onClick={(e) => e.stopPropagation()}
@@ -109,8 +96,8 @@ export default function EventsList() {
 
                         <div className="events-list-component__modal-image">
                             <img
-                                src={selectedEvent.image}
-                                alt=""
+                                src={selectedEvent.thumbnail}
+                                alt={selectedEvent.title}
                             />
                         </div>
 
@@ -122,17 +109,17 @@ export default function EventsList() {
                                 {selectedEvent.date}
                             </p>
 
-                            <p className="events-list-component__modal-description">
-                                {selectedEvent.description}
-                            </p>
+                            <div
+                                className="events-list-component__modal-description"
+                                dangerouslySetInnerHTML={{
+                                    __html: selectedEvent.description
+                                }}
+                            />
 
                         </div>
-
                     </div>
-
                 </div>
-
-            )}    
+            )}
 
         </div>
     );

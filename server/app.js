@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express()
 const port = 3000
+const PORT = process.env.PORT || 3000;
 
 const { Admin , Event } = require('./models');
 
@@ -14,9 +15,13 @@ app.use("/loginAdmin", express.json());
 app.use("/admins", express.json());
 app.use("/events", express.json());
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+// app.listen(port, () => {
+//   console.log(`Example app listening on port ${port}`)
+// })
+
+app.listen(PORT, "0.0.0.0", () => {
+    console.log(`Server running on port ${PORT}`);
+});
 
 app.post('/registerAdmin',async(req , res)=>{
   try {
@@ -91,11 +96,8 @@ app.get('/events', async(req , res)=>{
 
 app.post('/events', async(req,res)=>{
   try {
-    console.log(req.body , "body");
-    
     const {title , date , thumbnail , venue , description } = req.body;
     const event = await Event.create({title , date , thumbnail , venue , description })
-    console.log(event);
     res.status(201).json(`Created New Event ${title}`)
   } catch (error) {
     console.log(error);

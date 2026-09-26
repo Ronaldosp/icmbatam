@@ -7,7 +7,12 @@
     justify-content: center;
     align-items: center;
 
-    background-image: url("https://images.unsplash.com/photo-1692406069831-0bb7ea297645?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2FyJTIwc2hvd3Jvb218ZW58MHx8MHx8fDA%3D");
+    background: linear-gradient(
+                    90deg,
+                    #082d55,
+                    #ffffff,
+                    #be603d
+                );
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;

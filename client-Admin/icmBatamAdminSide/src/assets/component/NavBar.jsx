@@ -7,7 +7,7 @@ import icmLogo from "../images/icm-logo.png";
 import "../styling/Navbar.scss"
 
 function NavBar(){
-
+    const navigate = useNavigate();
     const handleLogout = ()=>{
         localStorage.clear()
         navigate('/login')

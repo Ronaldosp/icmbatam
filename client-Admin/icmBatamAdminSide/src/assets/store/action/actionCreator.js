@@ -170,8 +170,6 @@ export const editEvents = (id , body) =>{
 
 export const deleteEvents = (id) =>{
     return async(dispatch)=>{
-        console.log(id ,"id");
-        
         try {
             const response = await fetch(BASE_URL+`/events/${id}`,{
                 method:"DELETE",
