@@ -10,6 +10,16 @@ const { comparePassword } = require('./helpers/bcrypt');
 const { signToken } = require("./helpers/jwt");
 
 app.use(cors("*"));
+
+app.use(
+    cors({
+        origin: [
+            "http://localhost:5173",
+            "https://icmbatam.vercel.app",
+            "https://your-admin.vercel.app"
+        ]
+    })
+);
 app.use("/registerAdmin", express.json());
 app.use("/loginAdmin", express.json());
 app.use("/admins", express.json());
