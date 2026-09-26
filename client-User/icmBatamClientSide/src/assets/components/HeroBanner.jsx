@@ -6,7 +6,7 @@ import appStoreLogo from "../images/app-store-logo.png";
 import googlePlayLogo from "../images/google-play-logo.png";
 import icmLogo from "../images/icm-logo2.png";
 
-import heroBanner from "../images/hero-banner.jpeg";
+import heroBanner from "../images/hero-banner.JPEG";
 import heroBanner2 from "../images/hero-banner2.avif";
 import heroBanner3 from "../images/hero-banner3.jpg";
 
