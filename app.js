@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express()
-const port = 3000
+//const port = 3000
 const PORT = process.env.PORT || 3000;
 
 const { Admin , Event } = require('./models');
@@ -9,14 +9,14 @@ const cors = require("cors");
 const { comparePassword } = require('./helpers/bcrypt');
 const { signToken } = require("./helpers/jwt");
 
-app.use(cors("*"));
+//app.use(cors("*"));
 
 app.use(
     cors({
         origin: [
             "http://localhost:5173",
             "https://icmbatam.vercel.app",
-            "https://your-admin.vercel.app"
+            "https://icmadmin.vercel.app"
         ]
     })
 );
